@@ -1,0 +1,71 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.2.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+//		classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.2.RELEASE")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+jar {
+	baseName = 'job-time'
+	version =  '0.1.0'
+}
+
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	runtime "org.codehaus.groovy:groovy:2.4.+"
+
+	compile('org.springframework.boot:spring-boot-starter')
+
+	compile 'org.springframework.boot:spring-boot-starter-web'
+	compile 'org.springframework.boot:spring-boot-starter-actuator'
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '1.0.0.RELEASE'
+
+	compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: '1.1.1'
+	/** mybatis分页插件 */
+	compile 'com.github.pagehelper:pagehelper:4.1.6'    /** -Swagger */
+	compile("io.springfox:springfox-swagger-ui:2.2.2")
+	/** http 请求类*/
+	compile 'httpcomponents-httpcore:httpcore:4.0-alpha6'
+	compile 'org.apache.httpcomponents:httpmime:4.5.2'
+	compile 'commons-httpclient:commons-httpclient:3.1'
+	compile 'dom4j:dom4j:1.6.1'
+
+	// logging
+	compile 'org.slf4j:slf4j-api:1.7.+'
+	compile 'ch.qos.logback:logback-classic:1.1.+'
+
+	// validation
+	compile 'org.apache.bval:bval-core:1.1.0'
+
+	// Use MySQL Connector-J
+	compile 'mysql:mysql-connector-java'
+
+	compile 'ch.qos.logback:logback-classic:1.1.7'
+
+	compile "com.google.code.gson:gson:2.6.2"
+	compile group:"net.rakugakibox.util", name: "yaml-resource-bundle", version: "1.1"
+	compile group: "com.fasterxml.jackson.datatype", name: "jackson-datatype-jsr310"
+
+	testCompile 'org.springframework.boot:spring-boot-starter-test'
+	testCompile 'org.springframework:spring-test'
+
+	testCompile group: "pl.pragmatists",name: "JUnitParams", version: "1.0.5"
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
