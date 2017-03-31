@@ -42,9 +42,49 @@ create table  leave_days	(
 
 ALTER TABLE leave_days ADD FOREIGN KEY(user_id) REFERENCES users(id); 
 
+create table attendances (
+  uuid Integer(10) primary key auto_increment not null,
+  op_month Integer(10) not null,
+  user_id Integer(10) not null,
+  data1 varchar(5) default '',
+  data2 varchar(5) default '',
+  data3 varchar(5) default '',
+  data4 varchar(5) default '',
+  data5 varchar(5) default '',
+  data6 varchar(5) default '',
+  data7 varchar(5) default '',
+  data8 varchar(5) default '',
+  data9 varchar(5) default '',
+  data10 varchar(5) default '',
+  data11 varchar(5) default '',
+  data12 varchar(5) default '',
+  data13 varchar(5) default '',
+  data14 varchar(5) default '',
+  data15 varchar(5) default '',
+  data16 varchar(5) default '',
+  data17 varchar(5) default '',
+  data18 varchar(5) default '',
+  data19 varchar(5) default '',
+  data20 varchar(5) default '',
+  data21 varchar(5) default '',
+  data22 varchar(5) default '',
+  data23 varchar(5) default '',
+  data24 varchar(5) default '',
+  data25 varchar(5) default '',
+  data26 varchar(5) default '',
+  data27 varchar(5) default '',
+  data28 varchar(5) default '',
+  data29 varchar(5) default '',
+  data30 varchar(5) default '',
+  data31 varchar(5) default ''
+);
+
+ALTER TABLE attendances ADD FOREIGN KEY(user_id) REFERENCES users(id); 
+
  select * from users  ;
  select * from Holidays ;
- select * from leave_days where date_format(create_date,'%Y-%m') = '2017-03' ;
+ select * from leave_days ;
+ where date_format(create_date,'%Y-%m') = '2017-03' ;
 SELECT * FROM LEAVE_DAYS WHERE  date_format(create_date,'%Y-%m') = "2017-03" ;
  update users set status =0 where  id = 521 ;
  commit;
@@ -53,3 +93,4 @@ SELECT * FROM LEAVE_DAYS WHERE  date_format(create_date,'%Y-%m') = "2017-03" ;
  
  alter TABLE users delete unused_sick_leave
  
+ select * from attendances ;

@@ -17,6 +17,7 @@ public class HolidaysResponse implements Serializable {
     private Double unusedAnnualLeave;
     private Double allSickLeave;
     private Double usedSickLeave;
+    private Double unusedSickLeave;
 
     public HolidaysResponse(){};
 
@@ -31,6 +32,7 @@ public class HolidaysResponse implements Serializable {
         this.unusedAnnualLeave = unusedAnnualLeave;
         this.allSickLeave = allSickLeave;
         this.usedSickLeave = usedSickLeave;
+        this.unusedSickLeave = unusedSickLeave;
     }
     public Integer getOpMonth() {
         return opMonth;
@@ -110,5 +112,13 @@ public class HolidaysResponse implements Serializable {
 
     public void setUsedSickLeave(Double usedSickLeave) {
         this.usedSickLeave = usedSickLeave;
+    }
+
+    public Double getUnusedSickLeave() {
+        return unusedSickLeave;
+    }
+
+    public void setUnusedSickLeave(Double unusedSickLeave) {
+        this.unusedSickLeave = unusedSickLeave;
     }
 }

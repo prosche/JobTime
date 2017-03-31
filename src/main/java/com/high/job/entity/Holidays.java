@@ -20,6 +20,17 @@ public class Holidays  implements Serializable {
 
     private Users users;
 
+    public Holidays (Integer opMonth, Integer userId, Double allAnnualLeave, Double usedAnnualLeave, Double unusedAnnualLeave, Double allSickLeave, Double usedSickLeave, Double unusedSickLeave) {
+        this.opMonth = opMonth;
+        this.userId = userId;
+        this.allAnnualLeave = allAnnualLeave;
+        this.usedAnnualLeave = usedAnnualLeave;
+        this.unusedAnnualLeave = unusedAnnualLeave;
+        this.allSickLeave = allSickLeave;
+        this.usedSickLeave = usedSickLeave;
+        this.unusedSickLeave = unusedSickLeave;
+    };
+
     public Integer getUuid() {
         return uuid;
     }

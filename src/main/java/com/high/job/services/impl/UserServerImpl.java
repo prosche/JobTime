@@ -49,20 +49,26 @@ public class UserServerImpl implements UserServer {
     }
 
     private Holidays requestToHolidays(UserRequest userRequest){
-        Holidays holidays = new Holidays();
-        holidays.setOpMonth(DateUtil.getNowMonth());
-        holidays.setUserId(userRequest.getId());
+        Holidays holidays = null;
 
         if(userRequest.getCompact() != null) {
-            holidays.setAllAnnualLeave(countAnnualLeaveDays(DateUtil.betweenTodayDays(userRequest.getCompact())));
-            holidays.setUsedAnnualLeave(0.0);
-            holidays.setUnusedAnnualLeave(countAnnualLeaveDays(DateUtil.betweenTodayDays(userRequest.getCompact())));
-            holidays.setAllSickLeave(countSickLeaveDays(DateUtil.betweenTodayDays(userRequest.getCompact())));
-            holidays.setUsedSickLeave(0.0);
-            holidays.setUnusedSickLeave(countAnnualLeaveDays(DateUtil.betweenTodayDays(userRequest.getCompact())));
+            holidays = new Holidays(DateUtil.getNowMonth(),
+                    userRequest.getId(),
+                    countAnnualLeaveDays(DateUtil.betweenTodayDays(userRequest.getCompact())),
+                    0.0,
+                    countAnnualLeaveDays(DateUtil.betweenTodayDays(userRequest.getCompact())),
+                    countSickLeaveDays(DateUtil.betweenTodayDays(userRequest.getCompact())),
+                    0.0,
+                    countAnnualLeaveDays(DateUtil.betweenTodayDays(userRequest.getCompact())));
         } else {
-            holidays.setAllAnnualLeave(0.0);
-            holidays.setAllSickLeave(0.0);
+            holidays = new Holidays(DateUtil.getNowMonth(),
+                    userRequest.getId(),
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0);
         }
 
         return holidays;

@@ -26,9 +26,9 @@ public class HolidaysController {
      * @param month
      * @return
      */
-    @RequestMapping(value = UrlMapping.GET_HOLIDAYS_PATH, method = RequestMethod.POST)
-    @ResponseBody
-    public List<HolidaysResponse> getMonthHolidays(final @PathVariable("month") @Valid Integer month){
+    @RequestMapping(value = UrlMapping.GET_HOLIDAYS_PATH, method = RequestMethod.GET)
+    @CrossOrigin
+    public List<HolidaysResponse> getMonthHolidays(final @PathVariable("month") @RequestBody @Valid Integer month){
         List<Holidays> lists = holidaysServer.getMonthHolidays(month);
         List<HolidaysResponse> results = new ArrayList<HolidaysResponse>();
         if(lists != null){
